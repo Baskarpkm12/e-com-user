@@ -50,7 +50,7 @@ export default function Productviewcomp({ logged }) {
                     // console.log(Response2.data.data[0]);
                     let data = await Response2.data.data[0];
                     cart.__v +=1;
-                    let totalitems = await [...data.cart, cart];  //[null,{}] 
+                    let totalitems = await [...data.cart, cart] || {};  //[null,{}] 
                     postcart(totalitems);
                 }); 
         }
