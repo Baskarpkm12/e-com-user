@@ -18,7 +18,7 @@ function Logout({setlogged}){
 setlogged(false);
   sessionStorage.removeItem("logged");
   sessionStorage.removeItem("username");
-window.location.href="/e-com-user";
+window.location.href="/";
 }
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
 return (
   <>
     <BrowserRouter>
-    <Routes basename="/e-com-user">
+    <Routes>
         <Route path='/' element={<Homepage setlogged={setlogged} logged={logged}/>}></Route>
         <Route path='/products' element={<Productspage logged={logged} setlogged={setlogged} />}></Route>
         <Route path='/catagory' element={<Catagorypage logged={logged} setlogged={setlogged}/>}></Route>
