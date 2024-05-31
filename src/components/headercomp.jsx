@@ -2,22 +2,22 @@ import axios, { Axios } from "axios";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.jpg";
 import { useEffect, useState } from "react";
-const api_url=import.meta.env.VITE_API_URL;
+// const api_url=import.meta.env.VITE_API_URL;
 export default function Headercomp({setlogged}){
-    const [len,setLen] =useState(0);
-const name=sessionStorage.getItem("username");
+    // const [len,setLen] =useState(0);
+// const name=sessionStorage.getItem("username");
 
-    const fetchdata = async () => {
-        axios.get(`${api_url}/users/login/${name}`)
-            .then(async Response2 => {
-                let data = await Response2.data.data[0].cart;
-                setLen(data.length);
-            });
-    }
+    // const fetchdata = async () => {
+    //     axios.get(`${api_url}/users/login/${name}`)
+    //         .then(async Response2 => {
+    //             let data = await Response2.data.data[0].cart;
+    //             setLen(data.length);
+    //         });
+    // }
 
-    useEffect(() => {
-        fetchdata();
-    }, [])
+    // useEffect(() => {
+    //     fetchdata();
+    // }, [])
 
     return(
         <>
@@ -41,9 +41,9 @@ const name=sessionStorage.getItem("username");
                 </nav>
             </div>
         </div>
-        <div className="cart-count">
+        {/* <div className="cart-count">
             <h6>{len}</h6>
-        </div>
+        </div> */}
         </>
     )
 }
