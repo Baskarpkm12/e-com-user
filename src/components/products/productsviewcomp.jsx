@@ -34,12 +34,12 @@ export default function Productviewcomp({ logged }) {
 
     const addtocart = async (id) => {
         // get specific product
-        getspecific();
+        await getspecific();
         async function getspecific() {
             await axios.get(`${api_url}/product/readspesific/${id}`)
                 .then(async Response1 => {
                     let result = await Response1.data.data[0];
-                    getusercart(result);
+                    await getusercart(result);
                 });
         }
         // get user cart
@@ -50,7 +50,7 @@ export default function Productviewcomp({ logged }) {
                     // console.log(Response2.data.data[0]);
                     let data = await Response2.data.data[0];
                     cart.__v +=1;
-                    let totalitems = await [...(data.cart), cart]; //[null,{}] 
+                    let totalitems = await [ {...data.cart} , cart]; //[null,{}] 
                     postcart(totalitems);
                 }); 
         }
