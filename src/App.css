@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    width:100%;
+}
 .menu{
+ width: 100%;
     display: flex;
     justify-content: space-between;
    align-items: center;
@@ -65,7 +74,6 @@ min-height: calc(100vh - 115px);
     text-align:center;
     background:#aaa;
     color:#333;
-    margin:0;
     height:25px;    
 }
 
@@ -178,7 +186,6 @@ a{
 /* product view */
 
 .container{
-    max-width: 1200px;
     width: 100%;
     display: grid;
     grid-template-columns: repeat();
@@ -195,7 +202,12 @@ body {
   font-family: 'Manrope', sans-serif;
   background:#eee;
 }
-
+.product-page{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .size span {
   font-size: 11px;
 }
@@ -280,7 +292,24 @@ body {
     background-color: #0ef;
 }
 
+.row{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap:20px;
+    flex-wrap: wrap;
+}
+.card{
+    width:200px;
+}
+
+
+
 @media(max-width:576px){
+
+    .card{
+        width:180px;
+    }
     .logo{
         width: 10%;
     }
@@ -290,14 +319,6 @@ body {
     }
     .bodyy{
         background-position: right;
-    }
-    .d-flex{
-        margin-right: 0rem!important;
-        margin-left: 0rem!important;
-        margin: auto;
-    }
-    .card{
-        width: 42%;
     }
     .confirm-order{
         width: 100%;

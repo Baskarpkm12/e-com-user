@@ -77,8 +77,8 @@ export default function Productviewcomp({ logged }) {
     }
 
     return (
-        <>
-           <div className="d-flex align-content-around flex-wrap row mx-5">
+        <div className="product-page">
+           <div className="row" >
                 {errmsg?(
                     <div className="alert alert-success alert-dismissible fade show" role="alert">
                     <strong className="text-success">{errmsg}</strong>
@@ -90,13 +90,13 @@ export default function Productviewcomp({ logged }) {
 
                     products?.map((v, i) => {
                         return (
-                            <div key={i} className="card col-lg-2  my-3 mx-3 ">
+                            <div key={i} className="card">
                                 <img className="card-img-top" src={image} />
                                 <div className="card-body">
                                     <h4 className="card-title">{v.p_name}</h4>
                                     <p className="card-text" style={{ color: "green" }}>Prize : ₨.{v.p_prize} </p>
-                                    <p className="card-text">Quantity : {v.p_qty} </p>
-                                    <p className="card-text"> catagory : {v.ctg_id} </p>
+                                    {/* <p className="card-text">Quantity : {v.p_qty} </p>
+                                    <p className="card-text"> catagory : {v.ctg_id} </p> */}
                                     {/* <td>{v.p_location}</td>
                                         <td>{v.totalsale}</td>
                                          <td>{v.vendor_id}</td> */}
@@ -109,6 +109,6 @@ export default function Productviewcomp({ logged }) {
 
                 }
             </div>
-        </>
+        </div>
     )
 }
