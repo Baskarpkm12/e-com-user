@@ -33,6 +33,7 @@ export default function Productviewcomp({ logged }) {
     }
 
     const addtocart = async (id) => {
+        setLoading(true);
         // get specific product
         await getspecific();
         async function getspecific() {
@@ -50,7 +51,7 @@ export default function Productviewcomp({ logged }) {
                     // console.log(Response2.data.data[0]);
                     let data = await Response2.data.data[0];
                     cart.__v +=1;
-                    let totalitems = await [ {...data.cart} , cart]; //[null,{}] 
+                    let totalitems = await [ ...data.cart , cart]; //[null,{}] 
                     postcart(totalitems);
                 }); 
         }
@@ -63,20 +64,30 @@ export default function Productviewcomp({ logged }) {
             }
             await axios.put(`${api_url}/users/update`, results)
                 .then(async Response3 => {
-                    console.log(Response3.data);
+                    // console.log(Response3.data);
                     if (Response3.data.error != "")
-                        (seterrmsg(Response3.data.error), setsuccessmsg(""))
+                        // (seterrmsg(false), setsuccessmsg("successfully added to cart!"))
+                    seterrmsg("Cart Item Added Successfully!")
                     else (Response3.data.msg != "")
-                    alert(Response3.data.msg);
+                    // alert("cart item added sucessfully!");
                     // navigate("/users");
                 });
-        }
+        setLoading(false);
+            }
     }
 
     return (
         <>
            <div className="d-flex align-content-around flex-wrap row mx-5">
+                {errmsg?(
+                    <div className="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong className="text-success">{errmsg}</strong>
+                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="close" onClick={()=>{seterrmsg("")}}></button>
+                </div>
+                ):""}
+                
                 {
+
                     products?.map((v, i) => {
                         return (
                             <div key={i} className="card col-lg-2  my-3 mx-3 ">

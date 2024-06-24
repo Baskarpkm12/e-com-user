@@ -279,3 +279,27 @@ body {
     margin: auto;
     background-color: #0ef;
 }
+
+@media(max-width:576px){
+    .logo{
+        width: 10%;
+    }
+    .logo img{
+        width: 50px;
+        height: 50px;
+    }
+    .bodyy{
+        background-position: right;
+    }
+    .d-flex{
+        margin-right: 0rem!important;
+        margin-left: 0rem!important;
+        margin: auto;
+    }
+    .card{
+        width: 42%;
+    }
+    .confirm-order{
+        width: 100%;
+    }
+}
